@@ -1,0 +1,154 @@
+/* Payment Options - eBay Style */
+.paymentOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.paymentOption {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.paymentOption:hover {
+    border-color: #0070f3;
+    background: #f8f9ff;
+}
+
+.paymentOption input.radio {
+    margin-top: 4px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.paymentContent {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.paymentLogo {
+    width: 50px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+}
+
+.klarnaLogo {
+    background: linear-gradient(135deg, #FFB5A8 0%, #FF9A8B 100%);
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+.paypalLogo {
+    background: #0070BA;
+    color: white;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+
+.venmoLogo {
+    background: #008CFF;
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+
+.visaLogo {
+    background: #1A1F71;
+    color: #FDB913;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 3px;
+}
+
+.gpayLogo {
+    color: #4285F4;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.paypalCreditLogo {
+    background: linear-gradient(135deg, #0070BA 0%, #1546A0 100%);
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+
+.paymentDetails {
+    flex: 1;
+}
+
+.paymentName {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.paymentDesc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.newBadge {
+    background: #0070f3;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 6px;
+}
+
+.learnMore {
+    color: #0070f3;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.learnMore:hover {
+    text-decoration: underline;
+}
+
+.expiredText {
+    color: #C7232B;
+    font-weight: 500;
+}
+
+.cardIcons {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.cardIcon {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #666;
+}

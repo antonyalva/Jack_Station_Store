@@ -1,0 +1,32 @@
+.bar {
+    background-color: var(--announcement-bg);
+    color: var(--announcement-text);
+    padding: 8px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 50;
+}
+
+.marquee {
+    display: inline-block;
+    animation: scroll 20s linear infinite;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-right: 50px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

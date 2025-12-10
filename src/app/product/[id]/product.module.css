@@ -1,0 +1,242 @@
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    gap: 40px;
+}
+
+/* Gallery Section */
+.gallery {
+    flex: 1.5;
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnailWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 80px;
+}
+
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 80px;
+    max-height: 500px;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    flex-shrink: 0;
+}
+
+.scrollBtn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.scrollBtn:hover {
+    background: #ddd;
+}
+
+.thumbBtn {
+    width: 80px;
+    height: 80px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.thumbBtn.active {
+    border-color: black;
+}
+
+.thumbImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mainImageContainer {
+    flex: 1;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    /* Keep it square-ish */
+    max-height: 600px;
+    /* Prevent extremely tall images from breaking layout */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    /* Ensure no spillover */
+}
+
+.mainImg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Info Section */
+.info {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.label {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sizeChartLink {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.sizes {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.sizeBtn {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sizeBtn:hover {
+    border-color: black;
+}
+
+.sizeBtn.selected {
+    background: black;
+    color: white;
+    border-color: black;
+}
+
+.stockWarning {
+    color: #d90429;
+    font-size: 13px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.quantityLabel {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.quantitySelector {
+    display: inline-flex;
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.qtyBtn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.qtyValue {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.addToCart {
+    width: 100%;
+    background: black;
+    color: white;
+    padding: 15px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    transition: background 0.2s;
+}
+
+.addToCart:hover {
+    background: #333;
+}
+
+.paymentInfo {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.accordion {
+    border-top: 1px solid #ddd;
+}
+
+.accordionHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.accordionContent {
+    padding-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.accordionContent ul {
+    padding-left: 20px;
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+}

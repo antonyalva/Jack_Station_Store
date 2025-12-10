@@ -1,0 +1,299 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    background: white;
+    border-radius: 8px;
+    max-width: 650px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.closeBtn:hover {
+    background: #f0f0f0;
+}
+
+.content {
+    padding: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.addressCard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background: white;
+    transition: all 0.2s;
+}
+
+.addressCard.selected {
+    border-color: #0070f3;
+    background: #f8f9ff;
+}
+
+.addressCard:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.badge {
+    background: #e0e0e0;
+    color: #333;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge.primary {
+    background: #d1e7ff;
+    color: #0051a8;
+}
+
+.addressInfo {
+    margin-bottom: 12px;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.addressLine {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.phone {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.selectBtn {
+    padding: 8px 20px;
+    border: 1px solid #0070f3;
+    border-radius: 20px;
+    background: white;
+    color: #0070f3;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.selectBtn:hover {
+    background: #0070f3;
+    color: white;
+}
+
+.editLink {
+    background: none;
+    border: none;
+    color: #0070f3;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+}
+
+.editLink:hover {
+    color: #0051cc;
+}
+
+.footer {
+    padding: 20px 24px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    gap: 12px;
+}
+
+.addNewBtn {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #0070f3;
+    border-radius: 24px;
+    background: white;
+    color: #0070f3;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.addNewBtn:hover {
+    background: #0070f3;
+    color: white;
+}
+
+.cancelBtn {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 24px;
+    background: white;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cancelBtn:hover {
+    background: #f5f5f5;
+}
+
+/* FORM STYLES */
+.formContent {
+    padding: 20px 24px;
+}
+
+.formLabel {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.formInput,
+.select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.formInput:focus,
+.select:focus {
+    outline: none;
+    border-color: #0070f3;
+}
+
+.row3 {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 0.8fr;
+    gap: 12px;
+}
+
+.phoneRow {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.countryCodeSelect {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f8f9fa;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.phoneInput {
+    flex: 1;
+}
+
+.addBtnBlue {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 24px;
+    background: #0070f3;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.addBtnBlue:hover {
+    background: #0051cc;
+}

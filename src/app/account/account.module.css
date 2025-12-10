@@ -1,0 +1,41 @@
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    width: 100%;
+    /* Ensure it takes full available width */
+    flex: 1;
+    /* Pushes footer down and fills vertical space */
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: left;
+    /* Ensure title is left aligned */
+}
+
+.card {
+    background: white;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    /* Ensure card fills container */
+}
+
+.emptyTitle {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.emptyText {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+}

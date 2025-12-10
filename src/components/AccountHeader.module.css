@@ -1,0 +1,101 @@
+/* Account Header Styles */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: white;
+}
+
+.leftNav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
+    font-family: 'fantasy', 'Impact', sans-serif;
+    /* Fallback closer to Ripndip font */
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: black;
+    text-decoration: none;
+    transform: rotate(-2deg);
+}
+
+.navLinks {
+    display: flex;
+    gap: 20px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navLink:hover {
+    text-decoration: underline;
+}
+
+.activeLink {
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* User Dropdown (Reused mostly) */
+.userSection {
+    position: relative;
+    cursor: pointer;
+}
+
+.userIcon {
+    font-size: 20px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+    border-radius: 4px;
+    width: 200px;
+    padding: 10px 0;
+    margin-top: 10px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdownHeader {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+    word-break: break-all;
+}
+
+.dropdownItem {
+    padding: 8px 20px;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: left;
+    background: none;
+    border: none;
+    display: block;
+    width: 100%;
+}
+
+.dropdownItem:hover {
+    background-color: #f9f9f9;
+}

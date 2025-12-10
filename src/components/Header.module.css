@@ -1,0 +1,190 @@
+/* Existing styles */
+.header {
+    width: 100%;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    border-bottom: 1px solid #eee;
+}
+
+.topNav {
+    background: white;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 0.5px;
+}
+
+.topLinks {
+    display: flex;
+    align-items: center;
+}
+
+.topLinks a {
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+.mainNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    height: 70px;
+}
+
+.logo h1 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    letter-spacing: -1px;
+    transform: rotate(-2deg);
+}
+
+.navLinks {
+    display: flex;
+    gap: 30px;
+}
+
+.navLinks a {
+    font-weight: 800;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.navLinks a:hover {
+    text-decoration: underline;
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+}
+
+.iconBtn {
+    font-size: 20px;
+}
+
+/* User Dropdown Styles */
+.userValues {
+    position: relative;
+    cursor: pointer;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Slightly more gap */
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Slightly darker shadow for pop */
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    width: 280px;
+    /* Wider for full email visibility */
+    padding: 0;
+    /* Removing default padding to control sections */
+    margin-top: 12px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+/* User Info Section within Dropdown */
+.dropdownHeader {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.avatarCircle {
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Prevent spill */
+}
+
+.userName {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.userEmail {
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+    /* Truncate if extremely long */
+}
+
+/* Links Section */
+.dropdownNav {
+    padding: 10px 0;
+}
+
+.dropdownItem {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: left;
+    background: none;
+    border: none;
+    display: block;
+    width: 100%;
+    transition: background-color 0.1s;
+}
+
+.dropdownItem:hover {
+    background-color: #f5f5f5;
+    text-decoration: underline;
+    /* Matches link style usually, or just bg change */
+}
+
+.dropdownItem[href] {
+    /* Specific for Links */
+    text-decoration: none;
+    /* Reset link underline default if any */
+}
+
+.dropdownItem[href]:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .navLinks {
+        display: none;
+    }
+}
