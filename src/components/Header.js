@@ -10,6 +10,7 @@ export default function Header() {
     const [user, setUser] = useState(null);
     const [role, setRole] = useState(null);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [collectiblesOpen, setCollectiblesOpen] = useState(false);
 
     useEffect(() => {
         checkUser();
@@ -83,11 +84,38 @@ export default function Header() {
 
                 <nav className={styles.navLinks}>
                     <Link href="/" className={styles.active}>INICIO</Link>
-                    <Link href="/basics">BASICS</Link>
-                    <Link href="/apparel">APPAREL</Link>
-                    <Link href="/accessories">ACCESSORIES</Link>
-                    <Link href="/collections">COLLECTIONS</Link>
-                    <Link href="/gift-card">GIFT CARD</Link>
+                    <Link href="/accesorios">ACCESORIOS</Link>
+                    <Link href="/autos">AUTOS</Link>
+                    <Link href="/servicios">SERVICIOS</Link>
+
+                    <div
+                        className={styles.navDropdown}
+                        onMouseEnter={() => setCollectiblesOpen(true)}
+                        onMouseLeave={() => setCollectiblesOpen(false)}
+                    >
+                        <span className={styles.navDropdownToggle}>
+                            COLECCIONABLES
+                            <span className={styles.dropdownArrow}>▾</span>
+                        </span>
+
+                        {collectiblesOpen && (
+                            <div className={styles.navDropdownMenu}>
+                                <Link href="/coleccionables/antigüedades" className={styles.navDropdownItem}>ANTIGÜEDADES</Link>
+                                <Link href="/coleccionables/armas-armaduras" className={styles.navDropdownItem}>ARMAS Y ARMADURAS</Link>
+                                <Link href="/coleccionables/autografos" className={styles.navDropdownItem}>AUTÓGRAFOS</Link>
+                                <Link href="/coleccionables/anillos-campeonato" className={styles.navDropdownItem}>ANILLOS DE CAMPEONATO</Link>
+                                <Link href="/coleccionables/comics" className={styles.navDropdownItem}>CÓMICS</Link>
+                                <Link href="/coleccionables/fosiles-minerales" className={styles.navDropdownItem}>FÓSILES Y MINERALES</Link>
+                                <Link href="/coleccionables/disney" className={styles.navDropdownItem}>DISNEY</Link>
+                                <Link href="/coleccionables/militaria-historia" className={styles.navDropdownItem}>MILITARIA E HISTORIA</Link>
+                                <Link href="/coleccionables/peliculas-tv" className={styles.navDropdownItem}>PELÍCULAS Y TV</Link>
+                                <Link href="/coleccionables/musica" className={styles.navDropdownItem}>MÚSICA</Link>
+                                <Link href="/coleccionables/pokemon" className={styles.navDropdownItem}>POKÉMON</Link>
+                                <Link href="/coleccionables/deportes" className={styles.navDropdownItem}>DEPORTES</Link>
+                                <Link href="/coleccionables/juguetes" className={styles.navDropdownItem}>JUGUETES</Link>
+                            </div>
+                        )}
+                    </div>
                 </nav>
 
                 <div className={styles.actions}>

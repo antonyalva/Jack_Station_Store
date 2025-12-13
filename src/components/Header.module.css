@@ -61,6 +61,81 @@
     text-decoration: underline;
 }
 
+/* Navigation Dropdown Styles for COLECCIONABLES */
+.navDropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.navDropdownToggle {
+    font-weight: 800;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navDropdownToggle:hover {
+    text-decoration: underline;
+}
+
+.dropdownArrow {
+    font-size: 10px;
+    transition: transform 0.2s ease;
+}
+
+.navDropdown:hover .dropdownArrow {
+    transform: rotate(180deg);
+}
+
+.navDropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #2a2a2a;
+    color: white;
+    min-width: 250px;
+    margin-top: 20px;
+    padding: 15px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navDropdownItem {
+    display: block;
+    padding: 12px 25px;
+    color: #d0d0d0;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.navDropdownItem:hover {
+    background: #3a3a3a;
+    color: white;
+    padding-left: 30px;
+}
+
 .actions {
     display: flex;
     gap: 15px;

@@ -1,0 +1,214 @@
+.mainWrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    padding-top: 100px;
+    /* Space for fixed header */
+}
+
+.guaranteesSection {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 60px;
+    font-weight: 400;
+}
+
+/* FEATURES ROW */
+.featuresRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.featureItem {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    gap: 15px;
+}
+
+.featureIcon {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    fill: #c5a059;
+    /* Gold color */
+}
+
+.featureContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.featureTitle {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.featureDescription {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* CARDS ROW */
+.cardsRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.redCard {
+    flex: 1;
+    background-color: #a8202b;
+    /* Dark Red */
+    padding: 40px 20px;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    min-height: 250px;
+}
+
+.redCard:hover {
+    transform: translateY(-5px);
+}
+
+.cardIcon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    fill: white;
+}
+
+.cardTitle {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.cardDescription {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 80%;
+}
+
+/* TEAM SECTION */
+.teamSection {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.teamTitle {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.teamSubtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 800px;
+}
+
+.teamGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.teamCard {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid white;
+}
+
+.teamCard:hover {
+    transform: translateY(-5px);
+    border-bottom: 4px solid #c5a059;
+}
+
+.teamImage {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.memberName {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.memberRole {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .featuresRow {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .featureItem {
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cardsRow {
+        flex-direction: column;
+    }
+
+    .teamGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .teamGrid {
+        grid-template-columns: 1fr;
+    }
+}
