@@ -15,6 +15,17 @@ export default function CategoriasPage() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingCategory, setEditingCategory] = useState(null);
     const [toast, setToast] = useState(null);
+    const [expandedCategories, setExpandedCategories] = useState(new Set()); // New state for expansion
+
+    const toggleExpand = (categoryId) => {
+        const newExpanded = new Set(expandedCategories);
+        if (newExpanded.has(categoryId)) {
+            newExpanded.delete(categoryId);
+        } else {
+            newExpanded.add(categoryId);
+        }
+        setExpandedCategories(newExpanded);
+    };
 
     const showToast = (message, type = 'success') => {
         setToast({ message, type });
@@ -62,12 +73,14 @@ export default function CategoriasPage() {
         setLoading(true);
         const { data, error } = await supabase
             .from('categories')
-            .select('*')
-            .order('order', { ascending: true });
+            .select('*, subcategories(*)')
+            .order('id', { ascending: true }); // Changed from 'order' to 'id'
 
         if (error) {
             console.error('Error fetching categories:', error);
+            showToast('Error al cargar categorías: ' + error.message, 'error');
         } else {
+            console.log('Categories loaded:', data);
             setCategories(data || []);
             setFilteredCategories(data || []);
         }
@@ -246,26 +259,82 @@ export default function CategoriasPage() {
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Slug</th>
+                                    <th>Subcategorías</th>
                                     <th>Orden</th>
                                     <th style={{ textAlign: 'right' }}>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {loading ? (
-                                    <tr><td colSpan="4" style={{ textAlign: 'center', padding: '30px' }}>Cargando...</td></tr>
+                                    <tr><td colSpan="5" style={{ textAlign: 'center', padding: '30px' }}>Cargando...</td></tr>
                                 ) : filteredCategories.length === 0 ? (
-                                    <tr><td colSpan="4" style={{ textAlign: 'center', padding: '30px' }}>No se encontraron categorías.</td></tr>
+                                    <tr><td colSpan="5" style={{ textAlign: 'center', padding: '30px' }}>No se encontraron categorías.</td></tr>
                                 ) : (
                                     filteredCategories.map(category => (
-                                        <tr key={category.id} className={styles.tableRow}>
-                                            <td style={{ fontWeight: '600' }}>{category.name}</td>
-                                            <td style={{ color: '#666' }}>{category.slug}</td>
-                                            <td>{category.order}</td>
-                                            <td style={{ textAlign: 'right' }}>
-                                                <button className={styles.actionBtn} onClick={() => openEditModal(category)} style={{ marginRight: '8px' }}>✏️</button>
-                                                <button className={styles.actionBtn} onClick={() => handleDelete(category.id)}>🗑️</button>
-                                            </td>
-                                        </tr>
+                                        <React.Fragment key={category.id}>
+                                            <tr
+                                                className={styles.tableRow}
+                                                onClick={() => toggleExpand(category.id)}
+                                                style={{ cursor: 'pointer' }}
+                                            >
+                                                <td style={{ fontWeight: '600' }}>
+                                                    <span style={{ marginRight: '10px', display: 'inline-block', width: '20px', transition: 'transform 0.2s', transform: expandedCategories.has(category.id) ? 'rotate(90deg)' : 'rotate(0deg)', fontSize: '12px', color: '#666' }}>
+                                                        ▶
+                                                    </span>
+                                                    {category.name}
+                                                </td>
+                                                <td style={{ color: '#666' }}>{category.slug}</td>
+                                                <td>
+                                                    {category.subcategories && category.subcategories.length > 0 ? (
+                                                        <span style={{
+                                                            background: '#f3e8ff',
+                                                            color: '#9333ea',
+                                                            padding: '2px 8px',
+                                                            borderRadius: '12px',
+                                                            fontSize: '12px',
+                                                            fontWeight: '500'
+                                                        }}>
+                                                            {category.subcategories.length} subcategorías
+                                                        </span>
+                                                    ) : (
+                                                        <span style={{ color: '#999', fontSize: '12px' }}>-</span>
+                                                    )}
+                                                </td>
+                                                <td>{category.id}</td>
+                                                <td style={{ textAlign: 'right' }} onClick={(e) => e.stopPropagation()}>
+                                                    <button className={styles.actionBtn} onClick={() => openEditModal(category)} style={{ marginRight: '8px' }}>✏️</button>
+                                                    <button className={styles.actionBtn} onClick={() => handleDelete(category.id)}>🗑️</button>
+                                                </td>
+                                            </tr>
+                                            {expandedCategories.has(category.id) && category.subcategories && category.subcategories.length > 0 && (
+                                                <tr style={{ background: '#f9fafb' }}>
+                                                    <td colSpan="5" style={{ padding: '0 0 15px 0', borderBottom: '1px solid #eee' }}>
+                                                        <div style={{ marginLeft: '40px', padding: '15px', background: 'white', borderRadius: '0 0 8px 8px', borderLeft: '3px solid #9333ea', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.03)' }}>
+                                                            <div style={{ fontSize: '13px', fontWeight: '600', color: '#6b7280', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                                                                Subcategorías
+                                                            </div>
+                                                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                                                                {category.subcategories.map(sub => (
+                                                                    <span key={sub.id} style={{
+                                                                        padding: '6px 12px',
+                                                                        background: '#f3f4f6',
+                                                                        borderRadius: '20px',
+                                                                        fontSize: '13px',
+                                                                        color: '#374151',
+                                                                        border: '1px solid #e5e7eb',
+                                                                        display: 'flex',
+                                                                        alignItems: 'center',
+                                                                        gap: '5px'
+                                                                    }}>
+                                                                        {sub.name}
+                                                                    </span>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            )}
+                                        </React.Fragment>
                                     ))
                                 )}
                             </tbody>

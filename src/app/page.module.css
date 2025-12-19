@@ -1,16 +1,258 @@
-.page {
+.hero {
+  position: relative;
   width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  /* Removed display: flex to prevent slider from shrinking */
+  background-color: #000;
+  /* Fallback */
+}
+
+.sliderContainer {
+  display: flex;
+  width: 300%;
+  /* 3 images */
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+  width: 33.333%;
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Gradient Overlay inside each slide */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.1) 100%);
+  z-index: 1;
+}
+
+/* Content Container - Static Overlay on top of slider */
+.staticContent {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  z-index: 10;
+  max-width: 800px;
+  color: white;
+  pointer-events: none;
+}
+
+.staticContent * {
+  pointer-events: auto;
+}
+
+.accentBar {
+  width: 40px;
+  height: 4px;
+  background-color: #d90429;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  text-transform: none;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  color: #cccccc;
+  max-width: 500px;
+  opacity: 0.9;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 15px;
+}
+
+.btnPrimary {
+  display: inline-block;
+  padding: 14px 35px;
+  background-color: #d90429;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.btnPrimary:hover {
+  background-color: #b90422;
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  display: inline-block;
+  padding: 14px 35px;
+  background-color: transparent;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.btnSecondary:hover {
+  background-color: white;
+  color: black;
+  transform: translateY(-2px);
+}
+
+/* Category Grid Section */
+.categorySection {
+  background-color: #fff;
+  padding: 60px 0;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.categoryCard {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.categoryImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.categoryCard:hover .categoryImg {
+  transform: scale(1.05);
+}
+
+/* Navigation Arrows */
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s;
+  backdrop-filter: blur(2px);
+}
+
+.navButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.prevBtn {
+  left: 20px;
+}
+
+.nextBtn {
+  right: 20px;
+}
+
+/* Dots */
+.dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.activeDot {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .staticContent {
+    left: 5%;
+    right: 5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Page Layout Styles for Inner Pages */
+.page {
   min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  /* Add spacing from the header */
+  background-color: #fff;
 }
 
 .main {
-  padding: 40px;
+  flex: 1;
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 40px;
+  /* Horizontal padding */
 }
 
-.main h1 {
-  font-family: var(--font-heading);
-  font-size: 48px;
-  margin-bottom: 20px;
+@media (max-width: 768px) {
+  .main {
+    padding: 0 20px;
+  }
 }

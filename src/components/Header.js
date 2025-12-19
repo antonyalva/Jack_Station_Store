@@ -100,7 +100,7 @@ export default function Header() {
 
                         {collectiblesOpen && (
                             <div className={styles.navDropdownMenu}>
-                                <Link href="/coleccionables/antigüedades" className={styles.navDropdownItem}>ANTIGÜEDADES</Link>
+                                <Link href="/coleccionables/antiguedades" className={styles.navDropdownItem}>ANTIGÜEDADES</Link>
                                 <Link href="/coleccionables/armas-armaduras" className={styles.navDropdownItem}>ARMAS Y ARMADURAS</Link>
                                 <Link href="/coleccionables/autografos" className={styles.navDropdownItem}>AUTÓGRAFOS</Link>
                                 <Link href="/coleccionables/anillos-campeonato" className={styles.navDropdownItem}>ANILLOS DE CAMPEONATO</Link>
@@ -116,6 +116,7 @@ export default function Header() {
                             </div>
                         )}
                     </div>
+                    <Link href="/nosotros" className={styles.navLink}>NOSOTROS</Link>
                 </nav>
 
                 <div className={styles.actions}>

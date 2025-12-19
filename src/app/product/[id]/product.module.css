@@ -58,6 +58,7 @@
     border: 1px solid transparent;
     cursor: pointer;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .thumbBtn.active {

@@ -20,11 +20,23 @@ export default function AdminPage() {
     const [editingProduct, setEditingProduct] = useState(null);
     const [catalogExpanded, setCatalogExpanded] = useState(true);
     const [toast, setToast] = useState(null);
+    const [categories, setCategories] = useState([]);
+    const [subcategories, setSubcategories] = useState([]);
 
     const showToast = (message, type = 'success') => {
         setToast({ message, type });
     };
 
+    async function fetchCategoriesAndSubcategories() {
+        const { data: cats, error: errCat } = await supabase.from('categories').select('*').order('name');
+        const { data: subcats, error: errSub } = await supabase.from('subcategories').select('*').order('name');
+
+        if (errCat) console.error('Error fetching categories:', errCat);
+        else setCategories(cats || []);
+
+        if (errSub) console.error('Error fetching subcategories:', errSub);
+        else setSubcategories(subcats || []);
+    }
 
     // Form State
     const [formData, setFormData] = useState({
@@ -33,13 +45,15 @@ export default function AdminPage() {
         cost: '',
         unit: 'Unidad (UND)',
         description: '',
-        category: 'Apparel',
+        category: '',
+        subcategory: '',
         condition: 'new'
     });
     const [imageFiles, setImageFiles] = useState([]);
 
     useEffect(() => {
         checkUser();
+        fetchCategoriesAndSubcategories();
     }, []);
 
     useEffect(() => {
@@ -115,6 +129,7 @@ export default function AdminPage() {
             unit: product.unit || 'Unidad (UND)',
             description: product.description || '',
             category: product.category,
+            subcategory: product.subcategory || '',
             condition: product.condition || 'new'
         });
         setImageFiles([]); // Reset files
@@ -123,7 +138,7 @@ export default function AdminPage() {
 
     const openNewModal = () => {
         setEditingProduct(null);
-        setFormData({ name: '', price: '', cost: '', unit: 'Unidad (UND)', description: '', category: 'Apparel', condition: 'new' });
+        setFormData({ name: '', price: '', cost: '', unit: 'Unidad (UND)', description: '', category: '', subcategory: '', condition: 'new' });
         setImageFiles([]);
         setIsModalOpen(true);
     };
@@ -176,6 +191,7 @@ export default function AdminPage() {
                 unit: formData.unit,
                 description: formData.description,
                 category: formData.category,
+                subcategory: formData.subcategory,
                 condition: formData.condition,
                 image_url: finalMainImage,
                 images: finalImages
@@ -416,13 +432,54 @@ export default function AdminPage() {
                                     <select
                                         name="category"
                                         value={formData.category}
-                                        onChange={handleInputChange}
+                                        onChange={(e) => {
+                                            setFormData({ ...formData, category: e.target.value, subcategory: '' });
+                                        }}
                                         className={styles.select}
+                                        required
                                     >
-                                        <option>Apparel</option>
-                                        <option>Accessories</option>
-                                        <option>Skate</option>
+                                        <option value="">Selecciona Categoría</option>
+                                        {categories.map((cat) => (
+                                            <option key={cat.id} value={cat.name}>{cat.name}</option>
+                                        ))}
                                     </select>
+                                </div>
+                                <div className={styles.inputGroup}>
+                                    <label className={styles.label}>Subcategoría</label>
+                                    {/* Logic: Find the selected category object to get its ID, then filter subcategories */}
+                                    {(() => {
+                                        const selectedCatObj = categories.find(c => c.name === formData.category);
+                                        const availableSubcats = selectedCatObj
+                                            ? subcategories.filter(s => s.category_id === selectedCatObj.id)
+                                            : [];
+
+                                        if (availableSubcats.length > 0) {
+                                            return (
+                                                <select
+                                                    name="subcategory"
+                                                    value={formData.subcategory || ''}
+                                                    onChange={handleInputChange}
+                                                    className={styles.select}
+                                                >
+                                                    <option value="">Seleccione una opción</option>
+                                                    {availableSubcats.map(sub => (
+                                                        <option key={sub.id} value={sub.name}>{sub.name}</option>
+                                                    ))}
+                                                </select>
+                                            );
+                                        } else {
+                                            return (
+                                                <input
+                                                    type="text"
+                                                    name="subcategory"
+                                                    value={formData.subcategory || ''}
+                                                    onChange={handleInputChange}
+                                                    className={styles.input}
+                                                    placeholder="Escribe la subcategoría..."
+                                                />
+                                            );
+                                        }
+                                    })()}
                                 </div>
                             </div>
 
