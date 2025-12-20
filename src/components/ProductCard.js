@@ -59,9 +59,9 @@ export default function ProductCard({ product }) {
                 <h3 className={styles.name}>{product.name}</h3>
                 <div className={styles.priceContainer}>
                     {product.originalPrice && (
-                        <span className={styles.originalPrice}>${product.originalPrice}</span>
+                        <span className={styles.originalPrice}>S/ {product.originalPrice}</span>
                     )}
-                    <span className={styles.price}>${product.price}</span>
+                    <span className={styles.price}>S/ {product.price}</span>
                 </div>
             </div>
         </Link>

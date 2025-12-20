@@ -29,10 +29,10 @@ export default function Home() {
   };
 
   const categories = [
-    { id: 1, src: '/images/workshop_1.png', alt: 'Mechanic holding steering wheel' },
-    { id: 2, src: '/images/workshop_2.png', alt: 'Engine maintenance' },
-    { id: 3, src: '/images/home_hero_workshop.png', alt: 'Professional workshop' },
-    { id: 4, src: '/images/workshop_1.png', alt: 'Dashboard testing' }, // Repeating for now due to quota
+    { id: 1, src: '/images/iron_factory2.png', alt: 'Mechanic holding steering wheel' },
+    { id: 2, src: '/images/iron_factory.png', alt: 'Iron Factory Restorations' },
+    { id: 3, src: '/images/iron_factory4.png', alt: 'Professional workshop' },
+    { id: 4, src: '/images/iron_factory3.png', alt: 'Dashboard testing' }, // Repeating for now due to quota
   ];
 
   return (

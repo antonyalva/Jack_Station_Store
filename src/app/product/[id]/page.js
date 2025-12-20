@@ -143,7 +143,7 @@ export default function ProductPage() {
             {/* Info Panel */}
             <div className={styles.info}>
                 <h1 className={styles.title}>{product.name}</h1>
-                <p className={styles.price}>${product.price}</p>
+                <p className={styles.price}>S/ {product.price}</p>
 
                 <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <span style={{ fontSize: '16px' }}>Condition:</span>
@@ -167,7 +167,7 @@ export default function ProductPage() {
                 </button>
 
                 <p className={styles.paymentInfo}>
-                    4 interest-free installments, or from ${product.price / 4}/mo with shopPay
+                    4 interest-free installments, or from S/ {product.price / 4}/mo with shopPay
                 </p>
 
                 {/* Feature List */}

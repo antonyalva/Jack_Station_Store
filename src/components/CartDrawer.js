@@ -38,7 +38,7 @@ export default function CartDrawer() {
                                             <span>{item.quantity}</span>
                                             <button onClick={() => updateQuantity(item.id, item.size, 1)}>+</button>
                                         </div>
-                                        <span className={styles.price}>${item.price * item.quantity}</span>
+                                        <span className={styles.price}>S/ {item.price * item.quantity}</span>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ export default function CartDrawer() {
                 <div className={styles.footer}>
                     <div className={styles.row}>
                         <span>SUBTOTAL</span>
-                        <span className={styles.subtotalPrice}>${subtotal}</span>
+                        <span className={styles.subtotalPrice}>S/ {subtotal}</span>
                     </div>
 
                     <div className={styles.protection}>
@@ -58,7 +58,7 @@ export default function CartDrawer() {
                             <p>Protection for Damage, Loss, Theft & More!</p>
                         </div>
                         <div className={styles.protectionPrice}>
-                            $3.95
+                            S/ 3.95
                             <div className={styles.toggle}>
                                 <div className={styles.toggleKnob} />
                             </div>

@@ -1,50 +1,53 @@
 .mainWrapper {
     width: 100%;
     min-height: 100vh;
-    background-color: white;
+    background-color: #f8f9fa;
     padding-top: 120px;
     padding-bottom: 80px;
 }
 
 .contactContainer {
-    max-width: 1400px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 40px;
 }
 
 .pageTitle {
     font-family: var(--font-heading, sans-serif);
-    font-size: 3rem;
-    font-weight: 400;
+    font-size: 3.5rem;
+    font-weight: 800;
     text-align: center;
     color: #c5a059;
-    /* Gold */
     margin-bottom: 60px;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .gridContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-    align-items: start;
+    gap: 30px;
+    align-items: stretch;
 }
 
 /* LEFT COLUMN: MAP */
 .columnTitle {
     font-family: var(--font-heading, sans-serif);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #c5a059;
-    margin-bottom: 20px;
-    font-weight: 400;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .mapContainer {
     width: 100%;
-    height: 400px;
-    border-radius: 8px;
+    height: 100%;
+    min-height: 450px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     background: white;
 }
 
@@ -57,128 +60,145 @@
 /* CENTER COLUMN: INFO */
 .infoColumn {
     text-align: center;
-    background-color: #333;
-    /* Dark box for contrast or Transparent? Ref image has dark bg for whole section, but user asked for light page bg. */
-    /* Adjusting: The user asked for page bg #eff0f2.
-       The reference image has a dark background for the whole section.
-       If the page is light, maybe the TEXT should be dark, or we put these in dark cards?
-       The user said "como la imagen pero con este color de fondo".
-       So likely white/dark text on the light background.
-    */
-    padding: 30px;
-    border-radius: 8px;
-    /* Let's make it a dark card to match the aesthetic of the "logo" and info contrast if desired, OR just dark text on light bg.
-       The reference has white text on dark bg.
-       If I use light bg #eff0f2, I should use dark text.
-    */
-    color: #333;
+    background-color: #1a1a1a;
+    padding: 50px 35px;
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Actually, let's stick to the structure. */
-.logoImage {
-    max-width: 200px;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+.logoPlaceholder {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #c5a059;
+    margin-bottom: 25px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 .infoText {
     font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    color: #555;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    color: #cccccc;
+    font-weight: 300;
 }
 
 .divider {
-    height: 1px;
+    height: 2px;
     background-color: #c5a059;
-    width: 100px;
-    margin: 0 auto 30px;
+    width: 60px;
+    margin: 0 auto 35px;
 }
 
 .contactList {
     list-style: none;
     padding: 0;
     text-align: left;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .contactItem {
-    margin-bottom: 15px;
     display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    color: #444;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #eeeeee;
+    line-height: 1.4;
 }
 
 .icon {
-    color: #c5a059;
-    width: 20px;
+    font-size: 1.2rem;
+    width: 24px;
+    flex-shrink: 0;
+    text-align: center;
 }
 
 /* RIGHT COLUMN: FORM */
 .formColumn {
-    background: transparent;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .formGroup {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .inputField {
     width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    background-color: white;
+    padding: 14px 18px;
+    border: 1px solid #e1e1e1;
+    background-color: #fcfcfc;
     color: #333;
-    border-radius: 4px;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
     outline: none;
-    transition: border-color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .inputField:focus {
     border-color: #c5a059;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1);
 }
 
 .textArea {
     width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    background-color: white;
+    padding: 14px 18px;
+    border: 1px solid #e1e1e1;
+    background-color: #fcfcfc;
     color: #333;
-    border-radius: 4px;
-    font-size: 1rem;
-    min-height: 150px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    min-height: 140px;
     resize: vertical;
     outline: none;
+    transition: all 0.3s ease;
+}
+
+.textArea:focus {
+    border-color: #c5a059;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1);
 }
 
 .submitButton {
     width: 100%;
-    padding: 15px;
+    padding: 16px;
     background-color: #c5a059;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
     text-transform: uppercase;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
 .submitButton:hover {
-    background-color: #b08d4b;
+    background-color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .privacyCheckbox {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 15px;
-    font-size: 0.85rem;
-    color: #666;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: #888;
+    cursor: pointer;
 }
 
 @media (max-width: 1000px) {

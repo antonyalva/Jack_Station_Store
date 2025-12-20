@@ -389,7 +389,7 @@ export default function AdminPage() {
                                             <td>
                                                 <span className={`${styles.badge} ${styles.apparel}`}>{product.category}</span>
                                             </td>
-                                            <td style={{ fontWeight: '600' }}>S/. {product.price}</td>
+                                            <td style={{ fontWeight: '600' }}>S/ {product.price}</td>
                                             <td style={{ textAlign: 'right' }}>
                                                 <button className={styles.actionBtn} onClick={() => openEditModal(product)} style={{ marginRight: '8px' }}>✏️</button>
                                                 <button className={styles.actionBtn} onClick={() => handleDelete(product.id)}>🗑️</button>

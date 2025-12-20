@@ -263,7 +263,7 @@ export default function CheckoutPage() {
                                             Installments <span className={paymentStyles.newBadge}>NEW</span>
                                         </div>
                                         <div className={paymentStyles.paymentDesc}>
-                                            4 interest-free payments of ${(total / 4).toFixed(2)} or other options available.
+                                            4 interest-free payments of S/ {(total / 4).toFixed(2)} or other options available.
                                             <a href="#" className={paymentStyles.learnMore}>Learn more</a>
                                         </div>
                                     </div>
@@ -390,7 +390,7 @@ export default function CheckoutPage() {
                                         Condition: <span style={{ fontWeight: 'bold', color: '#000' }}>New</span>
                                         <span title="Product Condition" style={{ border: '1px solid #000', borderRadius: '50%', width: '14px', height: '14px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', cursor: 'pointer' }}>i</span>
                                     </div>
-                                    <div className={styles.itemPrice}>${item.price.toFixed(2)}</div>
+                                    <div className={styles.itemPrice}>S/ {item.price.toFixed(2)}</div>
 
                                     <select className={styles.qtyDropdown} defaultValue={item.quantity}>
                                         <option value="1">Qty 1</option>
@@ -416,7 +416,7 @@ export default function CheckoutPage() {
 
                         <div className={styles.summaryRow}>
                             <span>Item ({cartItems.reduce((acc, i) => acc + i.quantity, 0)})</span>
-                            <span>${subtotal.toFixed(2)}</span>
+                            <span>S/ {subtotal.toFixed(2)}</span>
                         </div>
                         <div className={styles.summaryRow}>
                             <span>Shipping</span>
@@ -424,12 +424,12 @@ export default function CheckoutPage() {
                         </div>
                         <div className={styles.summaryRow}>
                             <span>Tax</span>
-                            <span>$0.00</span>
+                            <span>S/ 0.00</span>
                         </div>
 
                         <div className={styles.summaryTotal}>
                             <span>Order total</span>
-                            <span>${total.toFixed(2)}</span>
+                            <span>S/ {total.toFixed(2)}</span>
                         </div>
 
                         <div className={styles.agreementText}>
